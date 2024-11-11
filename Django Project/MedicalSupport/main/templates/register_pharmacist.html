@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h1>Реєстрація користувача</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зареєструватися</button>
+</form>
+<br>
+<a href="{% url 'login_pharmacist' %}">Вхід</a>
+<br>
+<a href="{% url 'home' %}">На головну</a>

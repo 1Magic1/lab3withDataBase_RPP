@@ -1,0 +1,24 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h1>Список рецептів</h1>
+<ul>
+  {% for prescription in prescriptions %}
+    <li>
+      Пацієнт: {{ prescription.patient }}, Ліки: {{ prescription.medicine }} ({{ prescription.quantity }})
+      {% if prescription.sold %}
+        <strong>Продано</strong>
+      {% else %}
+        <a href="{% url 'sell_medicine' prescription_index=forloop.counter0 %}">Продати</a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+<br>
+<a href="{% url 'home' %}">На головну</a>
+
+<form action="{% url 'logout_pharmacist' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Вийти</button>
+</form>

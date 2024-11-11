@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашня сторінка</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Ласкаво просимо до вебдодатку медичного забезпечення!</h1>
+    <p><a href="{% url 'patient_list' %}">Перейти до медичної картки пацієнта</a></p>
+    <p><a href="{% url 'doctor_view' doctor_id='doctor1' %}">Перейти до лікаря</a></p>
+    <p><a href="{% url 'pharmacist_view' %}">Перейти до аптекаря</a></p>
+    
+</body>
+</html>

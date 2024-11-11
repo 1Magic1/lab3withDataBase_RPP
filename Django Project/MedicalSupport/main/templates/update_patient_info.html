@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h1>Оновити інформацію</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="info">Додаткова інформація:</label>
+    <input type="text" id="info" name="info">
+    <button type="submit">Зберегти</button>
+</form>
+<br>
+<a href="{% url 'home' %}">На головну</a>

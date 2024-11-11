@@ -1,0 +1,19 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h1>Лікар {{ doctor.name }}</h1>
+<h2>Пацієнти:</h2>
+<ul>
+  {% for patient_id, patient in patients.items %}
+    <li>{{ patient.name }} - <a href="{% url 'create_prescription' doctor_id='doctor1' patient_id=patient_id %}">Виписати рецепт</a></li>
+    <a href="{% url 'update_medical_card' doctor_id='doctor1' patient_id=patient_id %}">Оновити медичну картку</a>
+  {% endfor %}
+</ul>
+<br>
+<a href="{% url 'home' %}">На головну</a>
+
+<form action="{% url 'logout_pharmacist' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Вийти</button>
+</form>

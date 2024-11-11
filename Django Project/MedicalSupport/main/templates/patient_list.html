@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h1>Список пацієнтів</h1>
+<ul>
+    {% for patient_id, patient in patients.items %}
+        <li>{{ forloop.counter }}. <a href="{% url 'patient_view' patient_id=patient_id %}">{{ patient.name }}</a></li>
+    {% endfor %}
+</ul>
+<br>
+<a href="{% url 'home' %}">На головну</a>

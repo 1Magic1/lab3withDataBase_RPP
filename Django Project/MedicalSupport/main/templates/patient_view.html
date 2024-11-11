@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<h1>Медична картка пацієнта {{ patient.name }}</h1>
+<p>Медична інформація: {{ patient.medical_card }}</p>
+<p>Додаткова інформація: {{ patient.info }}</p>
+<a href="{% url 'update_patient_info' patient_id=patient_id %}">Оновити інформацію</a>
+<br>
+<a href="{% url 'patient_list' %}">Повернутися до списку пацієнтів</a>
+<br>
+<a href="{% url 'home' %}">На головну</a>
